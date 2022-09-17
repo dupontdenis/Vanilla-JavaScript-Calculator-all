@@ -1,10 +1,10 @@
-let currentOperand = '',
+let currentOperand = '0',
   previousOperand = '',
   operation = undefined;
 
 
 function clear() {
-  currentOperand = ''
+  currentOperand = '0'
   previousOperand = ''
   operation = undefined
 }
@@ -14,6 +14,9 @@ function clear() {
  * @param {String} number Number to append to currentOperand
  */
 function appendNumber(number) {
+  if (currentOperand.startsWith("0")) {
+    currentOperand = currentOperand.slice(1)
+  }
   currentOperand = currentOperand.toString() + number.toString()
 }
 
@@ -105,3 +108,5 @@ allClearButton.addEventListener('click', button => {
   updateDisplay()
 })
 
+clear();
+updateDisplay();
